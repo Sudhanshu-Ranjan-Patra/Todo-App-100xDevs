@@ -1,0 +1,51 @@
+import React, { useState } from "react";
+
+const [title, setTitle] = useState("");
+const [desc, setDesc] = useState("");
+
+function CreateTodo() {
+  return (
+    <div className="flex flex-col gap-5 justify-start items-center mt-80">
+      <input
+        className="w-50 p-2 bg-gray-200 rounded-lg transition border-0 hover:border-1 border-cyan-500 "
+        type="text"
+        id="title"
+        onChange={(e) => {
+          const value = e.target.value;
+          setTitle(e.target.value);
+        }}
+        placeholder="Title"
+      />
+      <input
+        className="w-50 p-2 bg-gray-300 rounded-lg transition border-0 hover:border-1 border-cyan-500 "
+        type="text"
+        id="desc"
+        onChange={(e) => {
+          const value = e.target.value;
+          setDesc(e.target.value);
+        }}
+        placeholder="Description"
+      />
+
+      <button
+        className="bg-blue-500 p-2 px-5 rounded-2xl text-white transition hover:bg-blue-600 "
+        onClick={() => {
+          fetch("http://localhost:3000/todos", {
+            method: "POST",
+            body: {
+              title: title,
+              desc: desc,
+            },
+          }).then(async function (res) {
+            const json = await res.json();
+            alert("TODO added");
+          });
+        }}
+      >
+        Add TODO
+      </button>
+    </div>
+  );
+}
+
+export default CreateTodo;
