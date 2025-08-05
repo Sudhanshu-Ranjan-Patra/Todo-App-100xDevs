@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 
-const [title, setTitle] = useState("");
-const [desc, setDesc] = useState("");
+
 
 function CreateTodo() {
+const [title, setTitle] = useState("null");
+const [desc, setDesc] = useState("null");
+
   return (
     <div className="flex flex-col gap-5 justify-start items-center mt-80">
       <input
         className="w-50 p-2 bg-gray-200 rounded-lg transition border-0 hover:border-1 border-cyan-500 "
         type="text"
         id="title"
-        onChange={(e) => {
+        onChange={function(e) {
           const value = e.target.value;
-          setTitle(e.target.value);
+          setTitle(value);
         }}
         placeholder="Title"
       />
@@ -20,9 +22,9 @@ function CreateTodo() {
         className="w-50 p-2 bg-gray-300 rounded-lg transition border-0 hover:border-1 border-cyan-500 "
         type="text"
         id="desc"
-        onChange={(e) => {
+        onChange={function(e) {
           const value = e.target.value;
-          setDesc(e.target.value);
+          setDesc(value);
         }}
         placeholder="Description"
       />
@@ -32,9 +34,12 @@ function CreateTodo() {
         onClick={() => {
           fetch("http://localhost:3000/todos", {
             method: "POST",
-            body: {
+            body: JSON.stringify({
               title: title,
               desc: desc,
+            }),
+            headers: {
+              "Content-Type": "application/json",
             },
           }).then(async function (res) {
             const json = await res.json();
