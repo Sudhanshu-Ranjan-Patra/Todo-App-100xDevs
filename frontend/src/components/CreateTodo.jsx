@@ -13,7 +13,7 @@ const [desc, setDesc] = useState("null");
         type="text"
         id="title"
         onChange={function(e) {
-          const value = e.target.value;
+          const value = e.target.value; 
           setTitle(value);
         }}
         placeholder="Title"
