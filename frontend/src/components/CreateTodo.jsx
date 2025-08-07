@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 
-
-
 function CreateTodo() {
-const [title, setTitle] = useState("null");
-const [desc, setDesc] = useState("null");
+  const [title, setTitle] = useState("null");
+  const [desc, setDesc] = useState("null");
 
   return (
     <div className="flex flex-col gap-5 justify-start items-center mt-80">
@@ -12,8 +10,8 @@ const [desc, setDesc] = useState("null");
         className="w-50 p-2 bg-gray-200 rounded-lg transition border-0 hover:border-1 border-cyan-500 "
         type="text"
         id="title"
-        onChange={function(e) {
-          const value = e.target.value; 
+        onChange={function (e) {
+          const value = e.target.value;
           setTitle(value);
         }}
         placeholder="Title"
@@ -22,7 +20,7 @@ const [desc, setDesc] = useState("null");
         className="w-50 p-2 bg-gray-300 rounded-lg transition border-0 hover:border-1 border-cyan-500 "
         type="text"
         id="desc"
-        onChange={function(e) {
+        onChange={function (e) {
           const value = e.target.value;
           setDesc(value);
         }}

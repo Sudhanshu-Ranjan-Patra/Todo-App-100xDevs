@@ -7,7 +7,10 @@ function Todo({ todos }) {
     <div>
       {todos.map(function (todo) {
         return (
-          <div key={todo._id} className="flex flex-col justify-center items-center">
+          <div
+            key={todo._id}
+            className="flex flex-col justify-center items-center"
+          >
             <div className="bg-white shadow-lg rounded-xl p-6 w-full max-w-md flex flex-col justify-center gap-4 items-start mt-6 transition hover:shadow-xl">
               <div className="w-full flex justify-between items-start">
                 <div>
