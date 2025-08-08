@@ -11,6 +11,7 @@ app.use(cors(
     // origin: "http://localhost:5173" // to allow only this frontend to use the backend
     // }
 ))
+
 // body{
 //     todo: String;
 //     description: String;

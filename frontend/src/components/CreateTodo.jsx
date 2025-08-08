@@ -30,7 +30,7 @@ function CreateTodo() {
       <button
         className="bg-blue-500 p-2 px-5 rounded-2xl text-white transition hover:bg-blue-600 "
         onClick={() => {
-          fetch("http://localhost:3000/todos", {
+          fetch("http://localhost:3000/todo", {
             method: "POST",
             body: JSON.stringify({
               title: title,
@@ -42,6 +42,9 @@ function CreateTodo() {
           }).then(async function (res) {
             const json = await res.json();
             alert("TODO added");
+            console.log(title);
+            console.log(desc);
+            
           });
         }}
       >
